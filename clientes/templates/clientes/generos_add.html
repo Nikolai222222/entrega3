@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generos add</h1>
+    
+    <div style="text-align: center;">
+        <h2>Formulario CRUD para generos</h2><br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <input type="submit" name="opcion" value="Agregar">
+        </form>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+            {{mensaje}}
+            {% endif %}
+        </div>
+        <br>
+        <a href="{% url 'crud_generos' %}">Volver</a>
+    </div>
+</body>
+</html>
