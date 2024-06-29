@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clientes',
+
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'automotora.urls'
 
+
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +77,11 @@ TEMPLATES = [
     },
 ]
 
+
+
+
+
+
 WSGI_APPLICATION = 'automotora.wsgi.application'
 
 
@@ -77,9 +91,10 @@ WSGI_APPLICATION = 'automotora.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
